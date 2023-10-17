@@ -3,7 +3,6 @@ import "./home.css";
 import Navbar from '../Components/Navbar/Navbar';
 
 
-
 const home = () => {
   return (
     <div className='home'>
