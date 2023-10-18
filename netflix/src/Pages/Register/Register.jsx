@@ -12,9 +12,11 @@ export default function Register() {
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
+
   const handleFinish = () => {
     setPassword(passwordRef.current.value);
   };
+  
   return (
     <div className="register">
       <div className="top">
