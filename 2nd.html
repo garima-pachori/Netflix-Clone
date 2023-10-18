@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Indian Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .question {
+      margin-bottom: 10px;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Indian Quiz</h1>
+
+  <form id="quizForm" onsubmit="calculateScore(); return false;">
+    <div class="question">
+      <strong>Question 1:</strong> What is the capital of India?
+      <div class="options">
+        <label><input type="radio" name="q1" value="wrong"> Mumbai</label>
+        <label><input type="radio" name="q1" value="wrong"> New Delhi</label>
+        <label><input type="radio" name="q1" value="correct"> Delhi</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 2:</strong> Which river is known as the "Ganges" in India?
+      <div class="options">
+        <label><input type="radio" name="q2" value="correct"> Ganga</label>
+        <label><input type="radio" name="q2" value="wrong"> Yamuna</label>
+        <label><input type="radio" name="q2" value="wrong"> Brahmaputra</label>
+      </div>
+    </div>
+
+    <div class="question">
+        <strong>Question 3:</strong> Which city is famous for the Taj Mahal?
+        <div class="options">
+          <label><input type="radio" name="q3" value="wrong"> Jaipur</label>
+          <label><input type="radio" name="q3" value="wrong"> Mumbai</label>
+          <label><input type="radio" name="q3" value="correct"> Agra</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>Question 4:</strong> Which festival is known as the Festival of Lights in India?
+        <div class="options">
+          <label><input type="radio" name="q4" value="wrong"> Holi</label>
+          <label><input type="radio" name="q4" value="correct"> Diwali</label>
+          <label><input type="radio" name="q4" value="wrong"> Eid</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>Question 5:</strong> Who is known as the Father of the Nation in India?
+        <div class="options">
+          <label><input type="radio" name="q5" value="wrong"> Jawaharlal Nehru</label>
+          <label><input type="radio" name="q5" value="correct"> Mahatma Gandhi</label>
+          <label><input type="radio" name='q5' value="wrong">Dr Ambedkar</label>
+        </div>
+    </div>
+
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="result"></div>
+</div>
+
+<script>
+let correctAnswers = {
+  q1: "correct",
+  q2: "correct",
+  q3: "correct",
+  q4: "correct",
+  q5: "correct"
+};
+
+function calculateScore() {
+  let score = 0;
+
+  for (let question in correctAnswers) {
+    const selectedAnswer = document.querySelector(`input[name=${question}]:checked`);
+    if (selectedAnswer) {
+      if (selectedAnswer.value === correctAnswers[question]) {
+        score++;
+      } else {
+        alert(`Question ${question.slice(1)}: Wrong answer! Correct answer is ${correctAnswers[question]}.`);
+      }
+    } else {
+      alert(`Question ${question.slice(1)}: Please select an answer.`);
+    }
+  }
+
+  document.getElementById('result').innerHTML = `Total score: ${score} out of ${Object.keys(correctAnswers).length}`;
+}
+
+</script>
+
+</body>
+</html>

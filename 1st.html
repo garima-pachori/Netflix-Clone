@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open New Window Example</title>
+</head>
+<body>
+
+<button onclick="openNewWindow()">Open New Window</button>
+
+<script>
+function openNewWindow() {
+  const windowFeatures = 'width=200,height=200,location=yes';
+  const windowName = 'MyWindow';
+  const url = 'https://example.com';  // Replace with your desired URL
+
+  const newWindow = window.open(url, windowName, windowFeatures);
+
+  // Resize the window after it's opened
+  if (newWindow) {
+    newWindow.resizeTo(300, 300);  // Adjust dimensions as needed
+  }
+}
+</script>
+
+</body>
+</html>
